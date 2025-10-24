@@ -12,6 +12,7 @@ namespace MottuApi.Models
         /// Identificador único da moto.
         /// </summary>
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         /// <summary>

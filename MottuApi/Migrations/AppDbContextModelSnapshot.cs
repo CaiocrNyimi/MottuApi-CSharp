@@ -17,18 +17,25 @@ namespace MottuApi.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.5")
+                .HasAnnotation("ProductVersion", "8.0.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             OracleModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.HasSequence<int>("SEQ_MOTO");
+
+            modelBuilder.HasSequence<int>("SEQ_MOVIMENTACAO");
+
+            modelBuilder.HasSequence<int>("SEQ_PATIO");
+
+            modelBuilder.HasSequence<int>("SEQ_USUARIO");
 
             modelBuilder.Entity("MottuApi.Models.Moto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("NUMBER(10)");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("NUMBER(10)")
+                        .HasDefaultValueSql("SEQ_MOTO.NEXTVAL");
 
                     b.Property<DateTime?>("DataEntrada")
                         .HasColumnType("TIMESTAMP(7)");
@@ -65,9 +72,8 @@ namespace MottuApi.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("NUMBER(10)");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("NUMBER(10)")
+                        .HasDefaultValueSql("SEQ_MOVIMENTACAO.NEXTVAL");
 
                     b.Property<DateTime>("DataEntrada")
                         .HasColumnType("TIMESTAMP(7)");
@@ -94,9 +100,8 @@ namespace MottuApi.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("NUMBER(10)");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("NUMBER(10)")
+                        .HasDefaultValueSql("SEQ_PATIO.NEXTVAL");
 
                     b.Property<string>("Localizacao")
                         .IsRequired()
@@ -123,9 +128,8 @@ namespace MottuApi.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("NUMBER(10)");
-
-                    OraclePropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("NUMBER(10)")
+                        .HasDefaultValueSql("SEQ_USUARIO.NEXTVAL");
 
                     b.Property<string>("SenhaHash")
                         .IsRequired()

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\caioc\\Desktop\\MottuAPI-CS\\MottuApi.csproj": {}
+    "C:\\Users\\caioc\\Documents\\MottuApi-CSharp\\MottuApi\\MottuApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\caioc\\Desktop\\MottuAPI-CS\\MottuApi.csproj": {
+    "C:\\Users\\caioc\\Documents\\MottuApi-CSharp\\MottuApi\\MottuApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\caioc\\Desktop\\MottuAPI-CS\\MottuApi.csproj",
+        "projectUniqueName": "C:\\Users\\caioc\\Documents\\MottuApi-CSharp\\MottuApi\\MottuApi.csproj",
         "projectName": "MottuApi",
-        "projectPath": "C:\\Users\\caioc\\Desktop\\MottuAPI-CS\\MottuApi.csproj",
+        "projectPath": "C:\\Users\\caioc\\Documents\\MottuApi-CSharp\\MottuApi\\MottuApi.csproj",
         "packagesPath": "C:\\Users\\caioc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\caioc\\Desktop\\MottuAPI-CS\\obj\\",
+        "outputPath": "C:\\Users\\caioc\\Documents\\MottuApi-CSharp\\MottuApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -52,7 +52,7 @@
           "dependencies": {
             "AspNetCore.HealthChecks.UI.Client": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[8.0.0, )"
             },
             "BCrypt.Net-Next": {
               "target": "Package",
@@ -76,17 +76,17 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.0.5, )"
+              "version": "[8.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.5, )"
+              "version": "[8.0.11, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
-              "version": "[9.0.5, )"
+              "version": "[8.0.11, )"
             },
             "Microsoft.ML": {
               "target": "Package",
@@ -102,7 +102,7 @@
             },
             "Oracle.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[9.23.80, )"
+              "version": "[8.23.80, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -110,7 +110,7 @@
             },
             "Swashbuckle.AspNetCore.Filters": {
               "target": "Package",
-              "version": "[9.0.1, )"
+              "version": "[8.0.1, )"
             }
           },
           "imports": [

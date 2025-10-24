@@ -46,6 +46,27 @@ namespace MottuApi.Data
                         .HasConversion<int>();
                 }
             }
+
+            modelBuilder.HasSequence<int>("SEQ_PATIO").StartsAt(1).IncrementsBy(1);
+            modelBuilder.HasSequence<int>("SEQ_MOTO").StartsAt(1).IncrementsBy(1);
+            modelBuilder.HasSequence<int>("SEQ_MOVIMENTACAO").StartsAt(1).IncrementsBy(1);
+            modelBuilder.HasSequence<int>("SEQ_USUARIO").StartsAt(1).IncrementsBy(1);
+
+            modelBuilder.Entity<Patio>()
+                .Property(p => p.Id)
+                .HasDefaultValueSql("SEQ_PATIO.NEXTVAL");
+
+            modelBuilder.Entity<Moto>()
+                .Property(m => m.Id)
+                .HasDefaultValueSql("SEQ_MOTO.NEXTVAL");
+
+            modelBuilder.Entity<Movimentacao>()
+                .Property(m => m.Id)
+                .HasDefaultValueSql("SEQ_MOVIMENTACAO.NEXTVAL");
+
+            modelBuilder.Entity<Usuario>()
+                .Property(u => u.Id)
+                .HasDefaultValueSql("SEQ_USUARIO.NEXTVAL");
         }
     }
 }

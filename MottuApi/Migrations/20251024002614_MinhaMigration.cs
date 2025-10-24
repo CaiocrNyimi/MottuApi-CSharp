@@ -6,17 +6,28 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MottuApi.Migrations
 {
     /// <inheritdoc />
-    public partial class CorrigirBooleanOracle : Migration
+    public partial class MinhaMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateSequence<int>(
+                name: "SEQ_MOTO");
+
+            migrationBuilder.CreateSequence<int>(
+                name: "SEQ_MOVIMENTACAO");
+
+            migrationBuilder.CreateSequence<int>(
+                name: "SEQ_PATIO");
+
+            migrationBuilder.CreateSequence<int>(
+                name: "SEQ_USUARIO");
+
             migrationBuilder.CreateTable(
                 name: "Patios",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "NUMBER(10)", nullable: false)
-                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    Id = table.Column<int>(type: "NUMBER(10)", nullable: false, defaultValueSql: "SEQ_PATIO.NEXTVAL"),
                     Nome = table.Column<string>(type: "NVARCHAR2(100)", maxLength: 100, nullable: false),
                     Localizacao = table.Column<string>(type: "NVARCHAR2(200)", maxLength: 200, nullable: false)
                 },
@@ -29,8 +40,7 @@ namespace MottuApi.Migrations
                 name: "Usuarios",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "NUMBER(10)", nullable: false)
-                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    Id = table.Column<int>(type: "NUMBER(10)", nullable: false, defaultValueSql: "SEQ_USUARIO.NEXTVAL"),
                     Username = table.Column<string>(type: "NVARCHAR2(50)", maxLength: 50, nullable: false),
                     SenhaHash = table.Column<string>(type: "NVARCHAR2(100)", maxLength: 100, nullable: false)
                 },
@@ -43,8 +53,7 @@ namespace MottuApi.Migrations
                 name: "Motos",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "NUMBER(10)", nullable: false)
-                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    Id = table.Column<int>(type: "NUMBER(10)", nullable: false, defaultValueSql: "SEQ_MOTO.NEXTVAL"),
                     Placa = table.Column<string>(type: "NVARCHAR2(7)", maxLength: 7, nullable: false),
                     Modelo = table.Column<string>(type: "NVARCHAR2(50)", maxLength: 50, nullable: false),
                     Status = table.Column<string>(type: "NVARCHAR2(20)", maxLength: 20, nullable: false),
@@ -65,8 +74,7 @@ namespace MottuApi.Migrations
                 name: "Movimentacoes",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "NUMBER(10)", nullable: false)
-                        .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
+                    Id = table.Column<int>(type: "NUMBER(10)", nullable: false, defaultValueSql: "SEQ_MOVIMENTACAO.NEXTVAL"),
                     MotoId = table.Column<int>(type: "NUMBER(10)", nullable: false),
                     PatioId = table.Column<int>(type: "NUMBER(10)", nullable: false),
                     DataEntrada = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
@@ -143,6 +151,18 @@ namespace MottuApi.Migrations
 
             migrationBuilder.DropTable(
                 name: "Patios");
+
+            migrationBuilder.DropSequence(
+                name: "SEQ_MOTO");
+
+            migrationBuilder.DropSequence(
+                name: "SEQ_MOVIMENTACAO");
+
+            migrationBuilder.DropSequence(
+                name: "SEQ_PATIO");
+
+            migrationBuilder.DropSequence(
+                name: "SEQ_USUARIO");
         }
     }
 }
