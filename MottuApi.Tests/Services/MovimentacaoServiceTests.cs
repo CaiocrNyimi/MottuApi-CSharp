@@ -1,9 +1,9 @@
 using Xunit;
 using Microsoft.EntityFrameworkCore;
-using MottuApi.Data;
-using MottuApi.Services.Implementations;
-using MottuApi.Dtos;
-using MottuApi.Models;
+using MottuApi.API.Data;
+using MottuApi.API.Services.Implementations;
+using MottuApi.API.Dtos;
+using MottuApi.API.Models;
 
 namespace MottuApi.Tests.Services
 {

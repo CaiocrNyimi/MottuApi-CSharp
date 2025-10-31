@@ -1,6 +1,6 @@
 using Xunit;
-using MottuApi.Services.Implementations;
-using MottuApi.Dtos;
+using MottuApi.API.Services.Implementations;
+using MottuApi.API.Dtos;
 
 namespace MottuApi.Tests.Services
 {
