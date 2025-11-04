@@ -5032,7 +5032,7 @@
           "build/netcoreapp3.1/xunit.runner.visualstudio.props": {}
         }
       },
-      "MottuApi/1.0.0": {
+      "MottuApi.API/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
@@ -5052,10 +5052,10 @@
           "Swashbuckle.AspNetCore.Filters": "8.0.1"
         },
         "compile": {
-          "bin/placeholder/MottuApi.dll": {}
+          "bin/placeholder/MottuApi.API.dll": {}
         },
         "runtime": {
-          "bin/placeholder/MottuApi.dll": {}
+          "bin/placeholder/MottuApi.API.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -14353,10 +14353,10 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "MottuApi/1.0.0": {
+    "MottuApi.API/1.0.0": {
       "type": "project",
-      "path": "../MottuApi/MottuApi.csproj",
-      "msbuildProject": "../MottuApi/MottuApi.csproj"
+      "path": "../MottuApi.API/MottuApi.API.csproj",
+      "msbuildProject": "../MottuApi.API/MottuApi.API.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -14365,7 +14365,7 @@
       "Microsoft.EntityFrameworkCore.InMemory >= 8.0.11",
       "Microsoft.NET.Test.Sdk >= 17.8.0",
       "Moq >= 4.20.72",
-      "MottuApi >= 1.0.0",
+      "MottuApi.API >= 1.0.0",
       "coverlet.collector >= 6.0.2",
       "xunit >= 2.4.2",
       "xunit.runner.visualstudio >= 2.4.5"
@@ -14378,11 +14378,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\caioc\\Documents\\MottuApi-CSharp\\MottuApi.Tests\\MottuApi.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\caioc\\MottuApi-CSharp\\MottuApi.Tests\\MottuApi.Tests.csproj",
       "projectName": "MottuApi.Tests",
-      "projectPath": "C:\\Users\\caioc\\Documents\\MottuApi-CSharp\\MottuApi.Tests\\MottuApi.Tests.csproj",
+      "projectPath": "C:\\Users\\caioc\\MottuApi-CSharp\\MottuApi.Tests\\MottuApi.Tests.csproj",
       "packagesPath": "C:\\Users\\caioc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\caioc\\Documents\\MottuApi-CSharp\\MottuApi.Tests\\obj\\",
+      "outputPath": "C:\\Users\\caioc\\MottuApi-CSharp\\MottuApi.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -14403,8 +14403,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\caioc\\Documents\\MottuApi-CSharp\\MottuApi\\MottuApi.csproj": {
-              "projectPath": "C:\\Users\\caioc\\Documents\\MottuApi-CSharp\\MottuApi\\MottuApi.csproj"
+            "C:\\Users\\caioc\\MottuApi-CSharp\\MottuApi.API\\MottuApi.API.csproj": {
+              "projectPath": "C:\\Users\\caioc\\MottuApi-CSharp\\MottuApi.API\\MottuApi.API.csproj"
             }
           }
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xQgwpO86LGc=",
+  "dgSpecHash": "h7QCDBRe8lo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\caioc\\Documents\\MottuApi-CSharp\\MottuApi.Tests\\MottuApi.Tests.csproj",
+  "projectFilePath": "C:\\Users\\caioc\\MottuApi-CSharp\\MottuApi.Tests\\MottuApi.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\caioc\\.nuget\\packages\\aspnetcore.healthchecks.ui.client\\8.0.0\\aspnetcore.healthchecks.ui.client.8.0.0.nupkg.sha512",
     "C:\\Users\\caioc\\.nuget\\packages\\aspnetcore.healthchecks.ui.core\\8.0.0\\aspnetcore.healthchecks.ui.core.8.0.0.nupkg.sha512",
