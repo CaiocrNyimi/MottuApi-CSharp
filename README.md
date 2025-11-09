@@ -77,36 +77,42 @@ A API segue o padrão de camadas:
 
 ## Rotas da API
 
+### (Auth)
+
+| Método | Endpoint               | Descrição                        | Códigos HTTP Esperados                         |
+|--------|------------------------|----------------------------------|------------------------------------------------|
+| POST   | /api/v1/auth/registrar | Cadastra usuário                 | 200 OK  404 Not Found                          |
+| POST   | /api/v1/auth/login     | Loga usuário e gera token        | 200 OK, 404 Not Found                          |
+
 ### (Motos)
 
 | Método | Endpoint               | Descrição                        | Códigos HTTP Esperados                         |
 |--------|------------------------|----------------------------------|------------------------------------------------|
-| GET    | /api/motos             | Retorna todas as motos           | 200 OK                                         |
-| GET    | /api/motos/{id}        | Retorna moto por ID              | 200 OK, 404 Not Found                          |
-| GET    | /api/motos/search      | Retorna moto pela placa (query)  | 200 OK, 404 Not Found                          |
-| POST   | /api/motos             | Cria uma nova moto               | 201 Created, 400 Bad Request                   |
-| PUT    | /api/motos/{id}        | Atualiza uma moto existente      | 204 No Content, 400 Bad Request, 404 Not Found |
-| DELETE | /api/motos/{id}        | Exclui uma moto por ID           | 204 No Content, 404 Not Found                  |
+| GET    | /api/v1/moto           | Retorna todas as motos           | 200 OK                                         |
+| GET    | /api/v1/moto/{id}      | Retorna moto por ID              | 200 OK, 404 Not Found                          |
+| POST   | /api/v1/moto           | Cria uma nova moto               | 201 Created, 400 Bad Request                   |
+| PUT    | /api/v1/moto/{id}      | Atualiza uma moto existente      | 204 No Content, 400 Bad Request, 404 Not Found |
+| DELETE | /api/v1/moto/{id}      | Exclui uma moto por ID           | 204 No Content, 404 Not Found                  |
 
 ### (Patios)
 
 | Método | Endpoint               | Descrição                        | Códigos HTTP Esperados                         |
 |--------|------------------------|----------------------------------|------------------------------------------------|
-| GET    | /api/patios            | Retorna todos os pátios          | 200 OK                                         |
-| GET    | /api/patios/{id}       | Retorna pátio por ID             | 200 OK, 404 Not Found                          |
-| POST   | /api/patios            | Cria um novo pátio               | 201 Created, 400 Bad Request                   |
-| PUT    | /api/patios/{id}       | Atualiza um pátio existente      | 204 No Content, 400 Bad Request, 404 Not Found |
-| DELETE | /api/patios/{id}       | Exclui um pátio por ID           | 204 No Content, 404 Not Found                  |
+| GET    | /api/v1/patio          | Retorna todos os pátios          | 200 OK                                         |
+| GET    | /api/v1/patio/{id}     | Retorna pátio por ID             | 200 OK, 404 Not Found                          |
+| POST   | /api/v1/patio          | Cria um novo pátio               | 201 Created, 400 Bad Request                   |
+| PUT    | /api/v1/patio/{id}     | Atualiza um pátio existente      | 204 No Content, 400 Bad Request, 404 Not Found |
+| DELETE | /api/v1/patio/{id}     | Exclui um pátio por ID           | 204 No Content, 404 Not Found                  |
 
 ### (Movimentacoes)
 
 | Método | Endpoint               | Descrição                        | Códigos HTTP Esperados                         |
 |--------|------------------------|----------------------------------|------------------------------------------------|
-| GET    | /api/movimentacoes     | Retorna todas movimentações      | 200 OK                                         |
-| GET    | /api/movimentacoes/{id}| Retorna movimentação por ID      | 200 OK, 404 Not Found                          |
-| POST   | /api/movimentacoes     | Cria nova movimentação           | 201 Created, 400 Bad Request                   |
-| PUT    | /api/movimentacoes/{id}| Atualiza movimentação existente  | 204 No Content, 400 Bad Request, 404 Not Found |
-| DELETE | /api/movimentacoes/{id}| Exclui movimentação por ID       | 204 No Content, 404 Not Found                  |
+| GET    | /api/movimentacao      | Retorna todas movimentações      | 200 OK                                         |
+| GET    | /api/movimentacao/{id} | Retorna movimentação por ID      | 200 OK, 404 Not Found                          |
+| POST   | /api/movimentacao      | Cria nova movimentação           | 201 Created, 400 Bad Request                   |
+| PUT    | /api/movimentacao/{id} | Atualiza movimentação existente  | 204 No Content, 400 Bad Request, 404 Not Found |
+| DELETE | /api/movimentacao/{id} | Exclui movimentação por ID       | 204 No Content, 404 Not Found                  |
 
 ---
 
@@ -155,17 +161,15 @@ Motos
   "placa": "ABC1234",
   "modelo": "Honda CG 160",
   "status": "Disponível",
-  "patioId": 1,
-  "dataEntrada": "2025-10-01T08:00:00Z",
-  "dataSaida": null
+  "patioId": null,
+  "dataEntrada": null
 }
 ```
 - placa: Identificador da moto
 - modelo: Modelo da moto
 - status: Situação atual (ex: Disponível, Em manutenção, Alugada)
-- patioId: Id do pátio onde está localizada
-- dataEntrada: Data e hora de entrada no pátio
-- dataSaida: Data e hora de saída (pode ser null se ainda estiver no pátio)
+- patioId: Id do pátio onde está localizada (Se tiver)
+- dataEntrada: Data e hora de entrada no pátio (se estiver no pátio)
 
 Pátios
 ```json
@@ -191,6 +195,13 @@ Movimentações
 - dataEntrada: Data e hora de entrada
 - dataSaida: Data e hora de saída (pode ser null se ainda estiver no pátio)
 
+Prever Tempo
+```json
+{
+  "modelo": "CG 160",
+  "distanciaKm": 22
+}
+```
 ---
 
 ## Testes Automatizados
@@ -231,19 +242,17 @@ A API suporta múltiplas versões via URL segmentada:
 
 ## ML.NET
 
-A API inclui um endpoint que utiliza ML.NET para previsão de tempo de permanência de uma moto no pátio com base em dados históricos.
+A API inclui um endpoint que utiliza ML.NET para previsão de tempo de demora (em minutos) para a moto chegar ao Pátio.
 
 Exemplo de rota:
 
 ```bash
-POST /api/ml/predict
+POST /api/v1/entrega/prever-tempo
 ```
 
 Payload esperado:
 ```json
 {
-  "modelo": "Honda CG 160",
-  "status": "Disponível",
-  "tempoEstadia": 5
+ "tempoEstimadoMin: 10"
 }
 ```
